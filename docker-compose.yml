@@ -10,7 +10,6 @@ services:
             POSTGRES_DB: ${POSTGRES_DB}
         volumes:
             - ./docker_test_db:/var/lib/postgresql/data
-            - pg_data:/var/lib/postgresql/data
         healthcheck:
             test: ["CMD-SHELL", "sh -c 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}'"]
             interval: 5s
@@ -62,5 +61,3 @@ services:
 networks:
     pern:
         driver: bridge
-volumes:
-    pg_data:
